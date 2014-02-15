@@ -4,7 +4,7 @@ defmodule Protobuf.DefineMessage do
   alias Protobuf.Decoder
   alias Protobuf.Encoder
 
-  defrecord :field, Record.extract(:field, from: "deps/gpb/include/gpb.hrl")
+  defrecord :field, Record.extract(:field, from: Mix.Project.deps_path(Mix.project()) <> "/gpb/include/gpb.hrl")
 
   def def_message(name, fields) do
     quote do
