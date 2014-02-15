@@ -1,4 +1,4 @@
-box: nuxlli/elixir@0.0.4
+box: bitwalker/box-elixir
 build:
   steps:
       - script:
