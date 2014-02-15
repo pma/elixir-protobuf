@@ -29,8 +29,8 @@ defmodule GpbCompileHelper do
   end
 
   def reload do
-    Code.unload_files [__FILE__]
-    Code.require_file __FILE__
+    Code.unload_files [__ENV__.file]
+    Code.require_file __ENV__.file
   end
 
   def unload(module) do
@@ -38,7 +38,7 @@ defmodule GpbCompileHelper do
     :code.delete(module)
   end
 
-  def find_unused_module(n // 1) do
+  def find_unused_module(n \\ 1) do
     mod_name_candidate = :'protobuf_test_tmp_#{n}'
     case :code.is_loaded(mod_name_candidate) do
       false -> mod_name_candidate
