@@ -80,7 +80,7 @@ defmodule Messages do
   defmodule MsgHelpers do
     defmacro __using__(_opts) do
       quote do
-        Record.import __MODULE__, as: :msg
+        Record.defmacros :msg, @record_fields, __ENV__, __MODULE__
 
         def new_v1 do
           msg(v: :V1)
