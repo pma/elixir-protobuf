@@ -100,8 +100,6 @@ Messages.Msg[v: :V1]
 
 ## License
 
-"Azuki" and the Azuki logo are copyright (c) 2013 Azuki Serviços de Internet LTDA..
+elixir-protobuf source code is released under Apache 2 License.
 
-Elixir Protobuf source code is released under Apache 2 License.
-
-Check LEGAL and LICENSE files for more information.
+Check LICENSE files for more information.
