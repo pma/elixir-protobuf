@@ -4,7 +4,7 @@ defmodule Protobuf.DefineMessage do
   alias Protobuf.Decoder
   alias Protobuf.Encoder
 
-  defrecord :field, Record.extract(:field, from: "../gpb/include/gpb.hrl")
+  defrecord :field, Record.extract(:field, from: "deps/gpb/include/gpb.hrl")
 
   def def_message(name, fields) do
     quote do
@@ -29,7 +29,7 @@ defmodule Protobuf.DefineMessage do
   defp meta_information do
     quote do
       # Global messages defs information
-      def defs(_ // nil) do
+      def defs(_ \\ nil) do
         @root.defs
       end
 
