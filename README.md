@@ -1,6 +1,6 @@
 # Elixir Protobuf
 
-[![wercker status](https://app.wercker.com/status/d8f1feca0e7f89458088dcfd8feb4882/m "wercker status")](https://app.wercker.com/project/bykey/d8f1feca0e7f89458088dcfd8feb4882)
+[![wercker status](https://app.wercker.com/status/c471f0784224019a7de9b68439ff8c39/m/ "wercker status")](https://app.wercker.com/project/bykey/c471f0784224019a7de9b68439ff8c39)
 
 Is a tool for define records from a [Google Protocol Buffer](https://code.google.com/p/protobuf/) definitions files.
 
@@ -105,7 +105,3 @@ Messages.Msg[v: :V1]
 Elixir Protobuf source code is released under Apache 2 License.
 
 Check LEGAL and LICENSE files for more information.
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/azukiapp/elixir-protobuf/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
