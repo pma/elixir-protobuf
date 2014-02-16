@@ -2,25 +2,25 @@
 
 [![wercker status](https://app.wercker.com/status/c471f0784224019a7de9b68439ff8c39/m/ "wercker status")](https://app.wercker.com/project/bykey/c471f0784224019a7de9b68439ff8c39)
 
-Is a tool for define records from a [Google Protocol Buffer](https://code.google.com/p/protobuf/) definitions files.
+Is a tool for defining records from a [Google Protocol Buffer](https://code.google.com/p/protobuf/) definition file.
 
 ## Features
 
-Yet:
+Current:
 
-* Load protobuf on file or string;
-* Respects the namespace of messages;
-* Allows you to specify which modules should be loaded in the definition of records;
-* Uses the [gpb](https://github.com/tomas-abrahamsson/gpb) to parse;
+* Load protobuf from file or string
+* Respects the namespace of messages
+* Allows you to specify which modules should be loaded in the definition of records
+* Uses [gpb](https://github.com/tomas-abrahamsson/gpb) to parse
 
-Still to come:
+TODO:
 
-* Support to importing definitions;
-* Its own version of encode and decode (for now uses the gpb)
+* Support importing definitions
 
 ## Examples
 
-Defining the records from a string:
+## Define from a string
+
 ```elixir
 defmodule Messages do
   use Protobuf, "
@@ -41,18 +41,17 @@ defmodule Messages do
 end
 ```
 
-Using the definition in iex:
 ```elixir
 iex> msg = Messages.Msg.new(version: :'V2')
-Messages.Msg[version: :V2, sub: nil]
+  Messages.Msg[version: :V2, sub: nil]
 iex> msg.encode
-<<16, 2>>
+  <<16, 2>>
 iex> msg = msg.sub Messages.Msg.SubMsg.new(value: 10)
-Messages.Msg[version: :V2, sub: Messages.Msg.SubMsg[value: 10]]
+  Messages.Msg[version: :V2, sub: Messages.Msg.SubMsg[value: 10]]
 iex> msg.encode
-<<16, 2, 10, 2, 8, 10>>
+  <<16, 2, 10, 2, 8, 10>>
 iex> Messages.Msg.decode(msg.encode)
-Messages.Msg[version: :V2, sub: Messages.Msg.SubMsg[value: 10]]
+  Messages.Msg[version: :V2, sub: Messages.Msg.SubMsg[value: 10]]
 ```
 
 ## Define from a file
@@ -95,7 +94,7 @@ end
 
 ```elixir
 iex> Messages.Msg.new_v1
-Messages.Msg[v: :V1]
+  Messages.Msg[v: :V1]
 ```
 
 ## License
