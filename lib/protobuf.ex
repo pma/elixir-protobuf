@@ -34,7 +34,7 @@ defmodule Protobuf do
   end
 
   defp fix_field_ns(:field[type: {_type, name}] = field, ns) do
-    field.type { :msg, :"#{ns}.#{name}" }
+    field.type { type, :"#{ns}.#{name}" }
   end
 
   defp fix_field_ns(:field[] = field, _ns) do
