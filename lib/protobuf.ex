@@ -33,7 +33,7 @@ defmodule Protobuf do
     fields
   end
 
-  defp fix_field_ns(:field[type: {_type, name}] = field, ns) do
+  defp fix_field_ns(:field[type: {type, name}] = field, ns) do
     field.type { type, :"#{ns}.#{name}" }
   end
 
