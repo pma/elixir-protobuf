@@ -25,7 +25,7 @@ defmodule Protobuf.Decoder do
   defp fix_field(value, msg, :field[name: field, type: type, occurrence: occurrence]) do
     case {occurrence, type} do
       {:repeated, _} ->
-        value = lc v inlist value, do: fix_value(type, v)
+        value = for v <- value, do: fix_value(type, v)
         apply(msg, field, [value])
       {_, :string}   ->
         apply(msg, field, [fix_value(type, value)])

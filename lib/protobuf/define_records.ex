@@ -32,7 +32,7 @@ defmodule Protobuf.DefineRecords do
 
   # Generate code of records (message and enum)
   def generate(msgs, _opts \\ []) do
-    quotes = lc {{item_type, item_name}, fields} inlist msgs do
+    quotes = for {{item_type, item_name}, fields} <- msgs do
       case item_type do
         :msg  -> def_message(item_name, fields)
         :enum -> def_enum(item_name, fields)

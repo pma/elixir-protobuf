@@ -53,7 +53,7 @@ defmodule Protobuf.DefineMessage do
   end
 
   defp record_fields(fields) do
-    lc :field[name: name, occurrence: occurrence] inlist fields do
+    for :field[name: name, occurrence: occurrence] <- fields do
       {name, case occurrence do
         :repeated -> []
         _ -> nil
@@ -62,7 +62,7 @@ defmodule Protobuf.DefineMessage do
   end
 
   defp fields_methods(fields) do
-    lc :field[name: name, fnum: fnum] = field inlist fields do
+    for :field[name: name, fnum: fnum] = field <- fields do
       quote do
         def defs(:field, unquote(fnum)), do: unquote(Macro.escape(field))
         def defs(:field, unquote(name)), do: defs(:field, unquote(fnum))

@@ -1,7 +1,9 @@
 defmodule Protobuf.Parse do
 
-  defexception ParseError, error: nil do
-    def message(ParseError[error: error]) do
+  defmodule ParseError do
+    defexception ParseError, error: nil
+
+    def message(%ParseError{error: error}) do
       inspect(error)
     end
   end

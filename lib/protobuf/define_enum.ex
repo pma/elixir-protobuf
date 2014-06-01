@@ -2,7 +2,7 @@ defmodule Protobuf.DefineEnum do
   @moduledoc false
 
   def def_enum(name, values) do
-    contents = lc {atom, value} inlist values do
+    contents = for {atom, value} <- values do
       quote do
         def value(unquote(atom)), do: unquote(value)
         def atom(unquote(value)), do: unquote(atom)

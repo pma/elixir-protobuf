@@ -20,7 +20,7 @@ defmodule Protobuf.Encoder do
   defp fix_value(nil), do: :undefined
 
   defp fix_value(values) when is_list(values) do
-    lc value inlist values do
+    for value <- values do
       fix_value(value)
     end
   end

@@ -20,7 +20,7 @@ defmodule Protobuf do
   end
 
   defp fix_defs_ns(defs, ns) do
-    lc {{type, name}, fields} inlist defs do
+    for {{type, name}, fields} <- defs do
       {{type, :"#{ns}.#{name}"}, fix_fields_ns(type, fields, ns)}
     end
   end
